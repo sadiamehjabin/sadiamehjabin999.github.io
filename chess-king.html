@@ -4,327 +4,306 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080808">
-<title>Chess King — Strategy & Creativity | Creative Designer</title>
-<meta name="description" content="A premium 3D chess king visual representing strategy, creativity and thoughtful design.">
+<title>Chess King | Creative Designer</title>
+<meta name="description" content="A luxury 3D chess king representing strategy, vision and creativity.">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --gold:#d4af37;
-  --gold-light:#f7e6a1;
-  --bg:#080808;
-  --muted:#aaa;
-}
+:root{--gold:#d6b45a;--black:#080808}
 body{
-  background:var(--bg);
-  color:#fff;
-  font-family:Arial,Helvetica,sans-serif;
-  min-height:100vh;
-  overflow-x:hidden;
+  background:var(--black);color:#fff;
+  font-family:Arial,sans-serif;overflow-x:hidden;
 }
 body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:
-    radial-gradient(ellipse at 75% 45%,rgba(212,175,55,.13),transparent 45%),
-    radial-gradient(ellipse at 20% 80%,rgba(212,175,55,.06),transparent 40%);
+  content:"";position:fixed;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 70% 48%,#45341455,transparent 48%);
 }
 nav{
-  position:relative;
-  z-index:2;
-  padding:28px 7%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid rgba(212,175,55,.17);
+  height:85px;padding:0 7%;display:flex;
+  align-items:center;justify-content:space-between;
+  border-bottom:1px solid #ffffff12;position:relative;z-index:5;
 }
-.logo{
-  font-size:15px;
-  font-weight:700;
-  letter-spacing:3px;
-  color:var(--gold);
-}
+.brand{font-size:13px;letter-spacing:4px;color:var(--gold);font-weight:bold}
 .back{
-  color:white;
-  text-decoration:none;
-  font-size:13px;
-  border:1px solid rgba(212,175,55,.5);
-  padding:12px 20px;
-  border-radius:30px;
-  transition:.3s;
+  color:#eee;text-decoration:none;font-size:11px;
+  letter-spacing:2px;border:1px solid #b99a4b66;
+  padding:13px 19px;border-radius:30px;transition:.3s;
 }
-.back:hover{
-  background:var(--gold);
-  color:#080808;
-}
+.back:hover{background:var(--gold);color:#000}
 main{
-  max-width:1300px;
-  min-height:80vh;
-  margin:auto;
-  padding:55px 7%;
-  display:grid;
-  grid-template-columns:1fr 1.15fr;
-  align-items:center;
-  gap:35px;
+  min-height:calc(100vh - 145px);max-width:1450px;
+  margin:auto;padding:40px 7%;
+  display:grid;grid-template-columns:.85fr 1.15fr;
+  align-items:center;gap:20px;
 }
-.tag{
-  color:var(--gold);
-  letter-spacing:4px;
-  font-size:11px;
-  margin-bottom:25px;
+.content{position:relative;z-index:2}
+.eyebrow{
+  color:var(--gold);font-size:10px;letter-spacing:5px;
+  margin-bottom:30px;
 }
 h1{
-  font-family:Georgia,serif;
-  font-weight:400;
-  font-size:clamp(45px,6vw,85px);
-  line-height:1.05;
-  margin-bottom:24px;
+  font-family:Georgia,serif;font-weight:normal;
+  font-size:clamp(55px,7vw,100px);line-height:.98;
+  letter-spacing:-3px;
 }
-h1 span{
-  color:var(--gold);
-  font-style:italic;
+h1 span{color:var(--gold);font-style:italic}
+.desc{
+  color:#aaa;max-width:400px;line-height:1.9;
+  font-size:14px;margin-top:30px;
 }
-.description{
-  max-width:440px;
-  color:var(--muted);
-  font-size:15px;
-  line-height:1.9;
+.rule{width:65px;height:1px;background:var(--gold);margin:32px 0}
+.meta{color:#d9c58e;font-size:10px;letter-spacing:3px}
+.visual{height:640px;position:relative;min-width:0}
+canvas{width:100%;height:100%;display:block;touch-action:pan-y}
+.visual:after{
+  content:"";position:absolute;bottom:8%;left:15%;right:15%;
+  height:35px;background:#d5a735;
+  filter:blur(65px);opacity:.25;pointer-events:none;
 }
-.line{
-  width:65px;
-  height:2px;
-  background:var(--gold);
-  margin:30px 0;
-}
-.caption{
-  font-size:11px;
-  color:var(--gold-light);
-  letter-spacing:3px;
-}
-.visual{
-  position:relative;
-  width:100%;
-  height:540px;
-  min-width:0;
-}
-#chess3d{
-  width:100%;
-  height:100%;
-  display:block;
-  cursor:grab;
-}
-#chess3d:active{cursor:grabbing}
 .hint{
-  position:absolute;
-  bottom:15px;
-  left:0;
-  right:0;
-  text-align:center;
-  color:#888;
-  font-size:10px;
-  letter-spacing:2px;
-  pointer-events:none;
+  position:absolute;bottom:18px;left:0;right:0;
+  text-align:center;color:#888;font-size:9px;
+  letter-spacing:3px;pointer-events:none;
 }
 footer{
-  position:relative;
-  text-align:center;
-  padding:24px;
-  color:#777;
-  font-size:11px;
-  border-top:1px solid rgba(212,175,55,.13);
-  letter-spacing:1px;
+  padding:22px;text-align:center;color:#686868;
+  font-size:10px;letter-spacing:2px;
+  border-top:1px solid #ffffff12;
 }
-@media(max-width:800px){
-  main{
-    grid-template-columns:1fr;
-    text-align:center;
-    padding-top:65px;
-    gap:5px;
-  }
-  .description{margin:auto}
-  .line{margin:25px auto}
-  .visual{height:420px}
+@media(max-width:850px){
+  main{grid-template-columns:1fr;text-align:center;padding:55px 6% 25px}
+  .desc{margin:25px auto 0}
+  .rule{margin:28px auto}
+  .visual{height:490px}
 }
-@media(max-width:450px){
-  nav{padding:22px 5%}
-  .logo{font-size:11px;letter-spacing:2px}
-  .back{padding:10px 13px;font-size:11px}
-  .visual{height:340px}
+@media(max-width:480px){
+  nav{padding:0 5%;height:72px}
+  .brand{font-size:10px;letter-spacing:2px}
+  .back{font-size:9px;padding:11px}
+  .visual{height:390px}
 }
 </style>
 </head>
 
 <body>
-
 <nav>
-  <div class="logo">CREATIVE DESIGNER</div>
-  <a class="back" href="index.html">← BACK TO PORTFOLIO</a>
+  <div class="brand">CREATIVE DESIGNER</div>
+  <a class="back" href="index.html">← PORTFOLIO</a>
 </nav>
 
 <main>
-  <section>
-    <div class="tag">01 / STRATEGY & CREATIVITY</div>
-
-    <h1>Think Like<br>A <span>King.</span></h1>
-
-    <p class="description">
-      Great design begins with a powerful strategy.
-      Every detail has a purpose, every decision
-      creates direction, and every idea has the
-      potential to become something extraordinary.
+  <section class="content">
+    <div class="eyebrow">01 — STRATEGY & CREATIVITY</div>
+    <h1>The Art<br>of <span>Power.</span></h1>
+    <p class="desc">
+      Every remarkable creation begins with a vision.
+      Like a king on a chessboard, great design requires
+      strategy, precision and the courage to think differently.
     </p>
-
-    <div class="line"></div>
-
-    <div class="caption">STRATEGY · VISION · CREATIVE THINKING</div>
+    <div class="rule"></div>
+    <div class="meta">VISION · STRATEGY · EXCELLENCE</div>
   </section>
 
   <section class="visual">
-    <canvas id="chess3d"></canvas>
-    <div class="hint">DRAG TO ROTATE · INTERACTIVE 3D</div>
+    <canvas id="kingCanvas"></canvas>
+    <div class="hint">DRAG TO ROTATE · EXPLORE THE SCULPTURE</div>
   </section>
 </main>
 
-<footer>
-  © 2026 CREATIVE DESIGNER · DESIGNED WITH PURPOSE
-</footer>
+<footer>© 2026 CREATIVE DESIGNER · DESIGNED WITH PURPOSE</footer>
 
 <script type="module">
 import * as THREE from
 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 
-const canvas = document.getElementById('chess3d');
-const scene = new THREE.Scene();
+const canvas=document.getElementById("kingCanvas");
+const scene=new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(35,1,.1,100);
-camera.position.set(0,1.1,8);
+const camera=new THREE.PerspectiveCamera(32,1,.1,100);
+camera.position.set(0,1.1,9);
 
-const renderer = new THREE.WebGLRenderer({
-  canvas,
-  antialias:true,
-  alpha:true
+const renderer=new THREE.WebGLRenderer({
+  canvas,antialias:true,alpha:true
 });
 renderer.setPixelRatio(Math.min(devicePixelRatio,2));
-renderer.outputColorSpace = THREE.SRGBColorSpace;
-renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.25;
+renderer.outputColorSpace=THREE.SRGBColorSpace;
+renderer.toneMapping=THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure=1.5;
+renderer.shadowMap.enabled=true;
+renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 
-scene.add(new THREE.AmbientLight(0xffffff,.65));
+scene.add(new THREE.HemisphereLight(0xffe9b5,0x17100a,2));
 
-const gold = new THREE.MeshStandardMaterial({
-  color:0xd4af37,
-  metalness:.88,
-  roughness:.2
+const gold=new THREE.MeshPhysicalMaterial({
+  color:0xd9aa35,metalness:.78,roughness:.2,
+  clearcoat:1,clearcoatRoughness:.12
+});
+const darkGold=new THREE.MeshStandardMaterial({
+  color:0x76501b,metalness:.8,roughness:.27
+});
+const blackMarble=new THREE.MeshStandardMaterial({
+  color:0x171615,metalness:.35,roughness:.2
+});
+const gem=new THREE.MeshPhysicalMaterial({
+  color:0x650e13,metalness:.35,roughness:.12,
+  clearcoat:1
 });
 
-const light = new THREE.PointLight(0xffdf91,100,30);
-light.position.set(3,5,5);
-scene.add(light);
+function light(color,intensity,x,y,z){
+  const l=new THREE.PointLight(color,intensity,30);
+  l.position.set(x,y,z);scene.add(l);
+}
+light(0xffd779,150,3,5,5);
+light(0xffe4a0,95,-4,2,3);
+light(0x9e671b,120,1,4,-4);
 
-const rim = new THREE.PointLight(0xd4af37,70,25);
-rim.position.set(-4,2,-3);
-scene.add(rim);
+const sculpture=new THREE.Group();
+scene.add(sculpture);
 
-const king = new THREE.Group();
-scene.add(king);
-
-function cylinder(rt,rb,h,y){
-  const mesh = new THREE.Mesh(
-    new THREE.CylinderGeometry(rt,rb,h,64),
-    gold
+function lathe(points,material,y=0){
+  const geo=new THREE.LatheGeometry(
+    points.map(p=>new THREE.Vector2(p[0],p[1])),96
   );
+  const mesh=new THREE.Mesh(geo,material);
   mesh.position.y=y;
-  king.add(mesh);
+  mesh.castShadow=true;
+  mesh.receiveShadow=true;
+  sculpture.add(mesh);
+  return mesh;
+}
+function ring(radius,tube,y,material=gold){
+  const mesh=new THREE.Mesh(
+    new THREE.TorusGeometry(radius,tube,16,100),material
+  );
+  mesh.rotation.x=Math.PI/2;
+  mesh.position.y=y;
+  sculpture.add(mesh);
+}
+function sphere(radius,x,y,z,material=gold){
+  const mesh=new THREE.Mesh(
+    new THREE.SphereGeometry(radius,32,24),material
+  );
+  mesh.position.set(x,y,z);
+  mesh.castShadow=true;
+  sculpture.add(mesh);
+  return mesh;
 }
 
-function sphere(r,y,sx=1,sy=1,sz=1){
-  const mesh = new THREE.Mesh(
-    new THREE.SphereGeometry(r,48,32),
-    gold
-  );
-  mesh.position.y=y;
-  mesh.scale.set(sx,sy,sz);
-  king.add(mesh);
+// Sculpted king body
+lathe([
+ [0,-1.65],[.65,-1.65],[.85,-1.55],
+ [.9,-1.43],[.72,-1.32],[.55,-1.22],
+ [.42,-.95],[.34,-.65],[.31,-.3],
+ [.37,-.05],[.48,.1],[.4,.22],
+ [.28,.3],[.24,.58],[.36,.68],
+ [.52,.76],[.55,.87],[.43,.96],
+ [.22,1.05],[0,1.05]
+],gold);
+
+// Base decorative bands
+ring(.79,.055,-1.47);
+ring(.67,.045,-1.31);
+ring(.39,.045,-.12);
+ring(.51,.035,.83);
+
+// Crown top
+lathe([
+ [0,1.0],[.34,1.0],[.42,1.12],
+ [.38,1.25],[.25,1.34],[.15,1.38],
+ [0,1.38]
+],gold);
+
+// Cross and crown orb
+const cross=new THREE.Group();
+const vertical=new THREE.Mesh(
+ new THREE.BoxGeometry(.12,.65,.12),gold
+);
+const horizontal=new THREE.Mesh(
+ new THREE.BoxGeometry(.42,.12,.12),gold
+);
+cross.add(vertical,horizontal);
+cross.position.y=1.7;
+sculpture.add(cross);
+sphere(.13,0,2.08,0,gold);
+
+// Crown jewels
+for(let i=0;i<8;i++){
+ const a=i*Math.PI/4;
+ sphere(.075,Math.cos(a)*.39,1.19,Math.sin(a)*.39,gem);
 }
 
-cylinder(.95,.9,.22,-1.35);
-cylinder(.78,.95,.22,-1.15);
-cylinder(.55,.75,.35,-.85);
-sphere(.55,-.52,.9,.65,.9);
-cylinder(.36,.48,.75,-.05);
-sphere(.42,.38,1,.7,1);
-cylinder(.55,.4,.2,.65);
-sphere(.42,.3,.55,.55,.55);
-cylinder(.19,.28,.5,1);
-sphere(.23,1.28,1,1,1);
-cylinder(.13,.13,.5,1.55);
-cylinder(.3,.13,.12,1.78);
-cylinder(.13,.3,.12,1.78);
-sphere(.14,1.98,1,1,1);
+// Decorative gold studs around body
+for(let i=0;i<12;i++){
+ const a=i*Math.PI/6;
+ sphere(.045,Math.cos(a)*.51,-1.4,Math.sin(a)*.51,gold);
+}
 
-const cross = new THREE.Group();
-const bar1 = new THREE.Mesh(
-  new THREE.BoxGeometry(.13,.65,.13),gold
+// Black marble pedestal
+const base=new THREE.Mesh(
+ new THREE.CylinderGeometry(1.05,1.12,.22,96),
+ blackMarble
 );
-const bar2 = new THREE.Mesh(
-  new THREE.BoxGeometry(.42,.13,.13),gold
+base.position.y=-1.78;
+base.castShadow=true;
+sculpture.add(base);
+
+const goldBase=new THREE.Mesh(
+ new THREE.CylinderGeometry(1.08,1.08,.045,96),
+ darkGold
 );
-cross.add(bar1,bar2);
-cross.position.y=2.25;
-king.add(cross);
+goldBase.position.y=-1.65;
+sculpture.add(goldBase);
 
-const pedestal = new THREE.Mesh(
-  new THREE.CylinderGeometry(1.05,1.05,.12,64),
-  new THREE.MeshStandardMaterial({
-    color:0x24201a,metalness:.5,roughness:.3
-  })
+ring(1.02,.025,-1.65,darkGold);
+
+// Floor
+const floor=new THREE.Mesh(
+ new THREE.PlaneGeometry(200,200),
+ new THREE.MeshStandardMaterial({
+  color:0x090909,metalness:.3,roughness:.3
+ })
 );
-pedestal.position.y=-1.53;
-king.add(pedestal);
+floor.rotation.x=-Math.PI/2;
+floor.position.y=-1.91;
+floor.receiveShadow=true;
+scene.add(floor);
 
-let dragging=false;
-let previousX=0;
-let targetRotation=0;
+const keyLight=new THREE.DirectionalLight(0xffe0a0,3);
+keyLight.position.set(4,7,6);
+keyLight.castShadow=true;
+scene.add(keyLight);
 
-canvas.addEventListener('pointerdown',e=>{
-  dragging=true;
-  previousX=e.clientX;
-  canvas.setPointerCapture(e.pointerId);
+let rotation=0,dragging=false,lastX=0;
+canvas.addEventListener("pointerdown",e=>{
+ dragging=true;lastX=e.clientX;
+ canvas.setPointerCapture(e.pointerId);
 });
-
-canvas.addEventListener('pointermove',e=>{
-  if(!dragging)return;
-  targetRotation+=(e.clientX-previousX)*.009;
-  previousX=e.clientX;
+canvas.addEventListener("pointermove",e=>{
+ if(!dragging)return;
+ rotation+=(e.clientX-lastX)*.008;
+ lastX=e.clientX;
 });
-
-canvas.addEventListener('pointerup',()=>dragging=false);
-canvas.addEventListener('pointercancel',()=>dragging=false);
+canvas.addEventListener("pointerup",()=>dragging=false);
+canvas.addEventListener("pointercancel",()=>dragging=false);
 
 function resize(){
-  const w=canvas.clientWidth;
-  const h=canvas.clientHeight;
-  if(!w||!h)return;
-  renderer.setSize(w,h,false);
-  camera.aspect=w/h;
-  camera.updateProjectionMatrix();
+ const w=canvas.clientWidth,h=canvas.clientHeight;
+ if(!w||!h)return;
+ renderer.setSize(w,h,false);
+ camera.aspect=w/h;
+ camera.updateProjectionMatrix();
 }
 new ResizeObserver(resize).observe(canvas);
 resize();
 
-function animate(time){
-  requestAnimationFrame(animate);
-  if(!dragging)targetRotation+=.002;
-  king.rotation.y+=(targetRotation-king.rotation.y)*.06;
-  king.position.y=Math.sin(time*.001)*.08;
-  renderer.render(scene,camera);
+function animate(t){
+ requestAnimationFrame(animate);
+ if(!dragging)rotation+=.002;
+ sculpture.rotation.y=rotation;
+ sculpture.position.y=Math.sin(t*.001)*.045;
+ renderer.render(scene,camera);
 }
 requestAnimationFrame(animate);
 </script>
-
 </body>
 </html>
-
