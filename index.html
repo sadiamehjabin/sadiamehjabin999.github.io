@@ -187,7 +187,22 @@ footer {
       <a href="#contact">Contact</a>
     </div>
     <div class="theme">
-      <div class="colors" aria-label="Choose accent color">
+     
+<div class="colors" aria-label="Choose accent color">
+  <button class="swatch gold" data-color="#D4AF37" aria-label="Gold"></button>
+  <button class="swatch blue" data-color="#268BFF" aria-label="Blue"></button>
+  <button class="swatch purple" data-color="#A855F7" aria-label="Purple"></button>
+  <button class="swatch green" data-color="#10B981" aria-label="Green"></button>
+  <button class="swatch red" data-color="#EF4444" aria-label="Red"></button>
+  <button class="swatch pink" data-color="#EC4899" aria-label="Pink"></button>
+  <button class="swatch orange" data-color="#F97316" aria-label="Orange"></button>
+</div>
+<button id="autoToggle" type="button">AUTO: ON</button>
+</div>
+</div>
+</nav>
+</header>
+
         <button class="swatch gold active" data-color="#D4AF37" aria-label="Gold"></button>
         <button class="swatch blue" data-color="#268BFF" aria-label="Blue"></button>
         <button class="swatch purple" data-color="#A855F7" aria-label="Purple"></button>
@@ -298,46 +313,74 @@ footer {
 </footer>
 
 <script>
+
 const colors = document.querySelectorAll(".swatch");
 const root = document.documentElement;
-const palette = ["#D4AF37","#268BFF","#A855F7","#10B981","#EF4444","#EC4899","#F97316"];
+
+const palette = [
+  "#D4AF37",
+  "#268BFF",
+  "#A855F7",
+  "#10B981",
+  "#EF4444",
+  "#EC4899",
+  "#F97316"
+];
+
+let index = 0;
+let auto = true;
+let timer;
 
 function setTheme(color) {
   root.style.setProperty("--accent", color);
+
   colors.forEach(btn => {
     btn.classList.toggle("active", btn.dataset.color === color);
   });
+
   localStorage.setItem("portfolio-theme", color);
 }
 
-colors.forEach(btn => {
-  btn.addEventListener("click", () => {
-    setTheme(btn.dataset.color);
-    auto = false;
-    clearInterval(timer);
-  });
-});
-
-let auto = true;
-let index = 0;
-let timer;
-
 function startAuto() {
   clearInterval(timer);
-  auto = true;
+
+  if (!auto) return;
+
   timer = setInterval(() => {
     index = (index + 1) % palette.length;
     setTheme(palette[index]);
   }, 5000);
 }
 
+colors.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const color = btn.dataset.color;
+    index = palette.indexOf(color);
+    setTheme(color);
+  });
+});
+
+const autoButton = document.getElementById("autoToggle");
+
+if (autoButton) {
+  autoButton.addEventListener("click", function() {
+    auto = !auto;
+    this.textContent = auto ? "AUTO: ON" : "AUTO: OFF";
+    startAuto();
+  });
+}
+
 const saved = localStorage.getItem("portfolio-theme");
+
 if (saved && palette.includes(saved)) {
   index = palette.indexOf(saved);
   setTheme(saved);
+} else {
+  setTheme(palette[0]);
 }
 
 startAuto();
+
 </script>
 </body>
 </html>
