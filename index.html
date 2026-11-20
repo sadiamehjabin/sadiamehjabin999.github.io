@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Designer | Portfolio</title>
+<meta name="description" content="Professional Graphic Designer specializing in Logo Design, Branding and Visual Identity.">
+
+<style>
+:root {
+  --accent: #D4AF37;
+  --bg: #080808;
+  --surface: #111111;
+  --text: #ffffff;
+  --muted: #a3a3a3;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial, sans-serif;
+  transition:color .5s, background .5s;
+}
+
+a { color:inherit; text-decoration:none; }
+
+.container { width:min(1120px,90%); margin:auto; }
+
+header {
+  position:sticky; top:0; z-index:10;
+  background:#080808ed;
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #ffffff15;
+}
+
+nav {
+  min-height:76px;
+  display:flex; align-items:center;
+  justify-content:space-between; gap:20px;
+}
+
+.logo { font-size:21px; font-weight:800; }
+.logo span { color:var(--accent); }
+
+.navlinks { display:flex; gap:25px; font-size:13px; color:var(--muted); }
+.navlinks a:hover { color:var(--accent); }
+
+.theme {
+  display:flex; align-items:center; gap:9px;
+}
+
+.colors { display:flex; gap:5px; }
+
+.swatch {
+  width:18px; height:18px; border-radius:50%;
+  border:2px solid transparent; cursor:pointer;
+}
+
+.swatch.active { outline:2px solid white; outline-offset:2px; }
+
+.gold {background:#D4AF37}
+.blue {background:#268BFF}
+.purple {background:#A855F7}
+.green {background:#10B981}
+.red {background:#EF4444}
+.pink {background:#EC4899}
+.orange {background:#F97316}
+
+button {
+  cursor:pointer; border:1px solid var(--accent);
+  background:transparent; color:var(--accent);
+  border-radius:30px; padding:10px 16px;
+  font-weight:700; transition:.3s;
+}
+button:hover { background:var(--accent); color:#080808; }
+
+.hero {
+  min-height:590px; display:flex;
+  flex-direction:column; justify-content:center;
+  padding:90px 0;
+}
+
+.eyebrow {
+  color:var(--accent); text-transform:uppercase;
+  letter-spacing:4px; font-size:12px; margin-bottom:25px;
+}
+
+h1 {
+  font-size:clamp(44px,8vw,88px);
+  line-height:1.04; letter-spacing:-4px;
+  max-width:850px;
+}
+
+h1 span, .accent { color:var(--accent); }
+
+.hero p {
+  color:var(--muted); line-height:1.8;
+  max-width:570px; margin:25px 0 32px;
+}
+
+.actions { display:flex; gap:14px; flex-wrap:wrap; }
+
+.primary {
+  background:var(--accent); color:#080808;
+  padding:15px 25px;
+}
+
+section { padding:85px 0; }
+
+.section-title { font-size:36px; margin-bottom:12px; }
+.section-desc { color:var(--muted); line-height:1.7; margin-bottom:35px; }
+
+.grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.project {
+  min-height:220px; background:var(--surface);
+  border:1px solid #ffffff16; border-radius:12px;
+  padding:25px; display:flex; flex-direction:column;
+  justify-content:flex-end; transition:.3s;
+}
+
+.project:hover {
+  transform:translateY(-6px);
+  border-color:var(--accent);
+}
+
+.project .number { color:var(--accent); font-size:13px; margin-bottom:auto; }
+.project h3 { font-size:21px; margin-bottom:8px; }
+.project p { color:var(--muted); font-size:13px; line-height:1.6; }
+
+.services {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:15px;
+}
+
+.service {
+  background:var(--surface); padding:28px;
+  border-radius:12px; border:1px solid #ffffff15;
+}
+.service h3 { color:var(--accent); margin-bottom:12px; }
+.service p { color:var(--muted); line-height:1.7; font-size:14px; }
+
+.about {
+  background:var(--surface); padding:35px;
+  border-radius:14px; line-height:1.9;
+  color:var(--muted);
+}
+
+.contact {
+  text-align:center; background:var(--surface);
+  border-radius:16px; padding:55px 20px;
+}
+.contact p { color:var(--muted); margin:15px 0 25px; }
+
+footer {
+  border-top:1px solid #ffffff18;
+  padding:25px 0; color:var(--muted);
+  font-size:13px; text-align:center;
+}
+
+@media(max-width:700px) {
+  .navlinks { display:none; }
+  .grid,.services { grid-template-columns:1fr; }
+  .theme { gap:5px; }
+  h1 { letter-spacing:-2px; }
+  .hero { min-height:490px; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <nav class="container">
+    <a href="#" class="logo">CREATIVE<span>.</span></a>
+    <div class="navlinks">
+      <a href="#home">Home</a>
+      <a href="#work">Portfolio</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="theme">
+      <div class="colors" aria-label="Choose accent color">
+        <button class="swatch gold active" data-color="#D4AF37" aria-label="Gold"></button>
+        <button class="swatch blue" data-color="#268BFF" aria-label="Blue"></button>
+        <button class="swatch purple" data-color="#A855F7" aria-label="Purple"></button>
+        <button class="swatch green" data-color="#10B981" aria-label="Green"></button>
+        <button class="swatch red" data-color="#EF4444" aria-label="Red"></button>
+        <button class="swatch pink" data-color="#EC4899" aria-label="Pink"></button>
+        <button class="swatch orange" data-color="#F97316" aria-label="Orange"></button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+    <section class="hero" id="home">
+      <div class="eyebrow">Independent Graphic Designer</div>
+      <h1>Designing Brands<br>That <span>Stand Out.</span></h1>
+      <p>
+        I create meaningful visual identities, memorable logos,
+        and creative designs that help businesses build a powerful presence.
+      </p>
+      <div class="actions">
+        <a class="primary" href="#work">Explore My Work ↗</a>
+        <a href="#contact"><button>Let's Talk</button></a>
+      </div>
+    </section>
+
+    <section id="work">
+      <h2 class="section-title">Selected <span class="accent">Works.</span></h2>
+      <p class="section-desc">A collection of creative design projects and visual identities.</p>
+      <div class="grid">
+        <article class="project">
+          <div class="number">01 / BRAND IDENTITY</div>
+          <h3>Luxury Branding</h3>
+          <p>Elegant and timeless brand identity design.</p>
+        </article>
+        <article class="project">
+          <div class="number">02 / LOGO DESIGN</div>
+          <h3>Modern Logo</h3>
+          <p>Distinctive logo concepts for modern businesses.</p>
+        </article>
+        <article class="project">
+          <div class="number">03 / PRINT DESIGN</div>
+          <h3>Business Cards</h3>
+          <p>Professional and premium business stationery.</p>
+        </article>
+        <article class="project">
+          <div class="number">04 / SOCIAL MEDIA</div>
+          <h3>Social Creatives</h3>
+          <p>Engaging graphics for digital platforms.</p>
+        </article>
+        <article class="project">
+          <div class="number">05 / PACKAGING</div>
+          <h3>Product Design</h3>
+          <p>Creative packaging and product presentation.</p>
+        </article>
+        <article class="project">
+          <div class="number">06 / VISUAL DESIGN</div>
+          <h3>Creative Projects</h3>
+          <p>Unique visual concepts and graphic solutions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title">What I <span class="accent">Do.</span></h2>
+      <p class="section-desc">Creative solutions to elevate your business.</p>
+      <div class="services">
+        <article class="service">
+          <h3>Logo Design</h3>
+          <p>Unique, memorable and professional logo designs.</p>
+        </article>
+        <article class="service">
+          <h3>Brand Identity</h3>
+          <p>Complete visual branding systems for businesses.</p>
+        </article>
+        <article class="service">
+          <h3>Graphic Design</h3>
+          <p>Creative marketing, print and social media graphics.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="section-title">About <span class="accent">Me.</span></h2>
+      <div class="about">
+        I am a graphic designer passionate about creating clean,
+        professional and memorable visual experiences.
+        My focus is on logo design, brand identity and creative
+        communication that makes brands stand out.
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact">
+        <h2 class="section-title">Have a project in <span class="accent">mind?</span></h2>
+        <p>Let's create something exceptional together.</p>
+        <a href="mailto:YOUR-EMAIL@example.com">
+          <button class="primary">Contact Me ↗</button>
+        </a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  © 2026 Creative Designer. All rights reserved.
+</footer>
+
+<script>
+const colors = document.querySelectorAll(".swatch");
+const root = document.documentElement;
+const palette = ["#D4AF37","#268BFF","#A855F7","#10B981","#EF4444","#EC4899","#F97316"];
+
+function setTheme(color) {
+  root.style.setProperty("--accent", color);
+  colors.forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.color === color);
+  });
+  localStorage.setItem("portfolio-theme", color);
+}
+
+colors.forEach(btn => {
+  btn.addEventListener("click", () => {
+    setTheme(btn.dataset.color);
+    auto = false;
+    clearInterval(timer);
+  });
+});
+
+let auto = true;
+let index = 0;
+let timer;
+
+function startAuto() {
+  clearInterval(timer);
+  auto = true;
+  timer = setInterval(() => {
+    index = (index + 1) % palette.length;
+    setTheme(palette[index]);
+  }, 5000);
+}
+
+const saved = localStorage.getItem("portfolio-theme");
+if (saved && palette.includes(saved)) {
+  index = palette.indexOf(saved);
+  setTheme(saved);
+}
+
+startAuto();
+</script>
+</body>
+</html>
